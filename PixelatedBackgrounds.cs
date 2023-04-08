@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Reflection;
 using Terraria;
@@ -14,14 +14,14 @@ public class PixelatedBackgrounds : Mod {
 		if (_SamplerStateField == null)
 			throw new Exception("Couldn't get _SamplerStateField");
 
-        On.Terraria.Main.DrawBG += HookDrawBG;
+		On_Main.DrawBG += HookDrawBG;
 	}
 
-    public override void Unload() {
-		On.Terraria.Main.DrawBG -= HookDrawBG;
+	public override void Unload() {
+		On_Main.DrawBG -= HookDrawBG;
 	}
 
-    private void HookDrawBG(On.Terraria.Main.orig_DrawBG orig, Main self) {
+	private void HookDrawBG(On_Main.orig_DrawBG orig, Main self) {
 		// Override vanilla's LinearClamp every frame
 		_SamplerStateField.SetValue(Main.spriteBatch, SamplerState.PointClamp);
 		orig(self);

@@ -1,3 +1,9 @@
 displayName = Pixelated Backgrounds
 author = eralois
-version = 1.0.2
+version = 1.0.3
+homepage = https://github.com/eralois/PixelatedBackgrounds
+side = Client
+hideCode = false
+hideResources = false
+includeSource = false
+buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, Old\*
